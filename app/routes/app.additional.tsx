@@ -31,9 +31,9 @@ export default function AdditionalPage() {
               </Text>
               <Text as="p" variant="bodyMd">
                 To create your own page and have it show up in the app
-                navigation, add a page inside <Code>app/routes</Code>, and a
-                link to it in the <Code>&lt;ui-nav-menu&gt;</Code> component
-                found in <Code>app/routes/app.jsx</Code>.
+                navigation, add a page inside <Code code="app/routes" />, and a
+                link to it in the <Code code="&lt;ui-nav-menu&gt;" /> component
+                found in <Code code="app/routes/app.jsx" />.
               </Text>
             </VerticalStack>
           </Card>
@@ -62,7 +62,7 @@ export default function AdditionalPage() {
   );
 }
 
-function Code({ children }) {
+function Code({ code }: { code: string }) {
   return (
     <Box
       as="span"
@@ -74,7 +74,7 @@ function Code({ children }) {
       borderColor="border"
       borderRadius="1"
     >
-      <code>{children}</code>
+      <code>{code}</code>
     </Box>
   );
 }

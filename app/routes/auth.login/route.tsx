@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
   AppProvider as PolarisAppProvider,
@@ -18,7 +19,7 @@ import { loginErrorMessage } from "./error.server";
 
 export const links = () => [{ rel: "stylesheet", href: polarisStyles }];
 
-export async function loader({ request }) {
+export async function loader({ request }: LoaderArgs) {
   const errors = loginErrorMessage(await login(request));
 
   return json({
@@ -27,7 +28,7 @@ export async function loader({ request }) {
   });
 }
 
-export async function action({ request }) {
+export async function action({ request }: LoaderArgs) {
   const errors = loginErrorMessage(await login(request));
 
   return json({
@@ -36,10 +37,12 @@ export async function action({ request }) {
 }
 
 export default function Auth() {
-  const { polarisTranslations } = useLoaderData();
+  const { polarisTranslations } = useLoaderData<typeof loader>();
   const loaderData = useLoaderData();
-  const actionData = useActionData();
+  const actionData = useActionData<typeof action>();
+
   const [shop, setShop] = useState("");
+
   const { errors } = actionData || loaderData;
 
   return (
@@ -59,6 +62,7 @@ export default function Auth() {
                 value={shop}
                 onChange={setShop}
                 autoComplete="on"
+                // @ts-ignore
                 error={errors.shop}
               />
               <Button submit>Log in</Button>
