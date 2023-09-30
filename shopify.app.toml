@@ -2,7 +2,7 @@
 
 name = "qrcode"
 client_id = "9d82ec3f2d3461fa283200724e6cb036"
-application_url = "https://952a-166-1-22-239.ngrok-free.app"
+application_url = "https://b056-166-1-22-239.ngrok-free.app"
 embedded = true
 
 [access_scopes]
@@ -11,9 +11,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://952a-166-1-22-239.ngrok-free.app/auth/callback",
-  "https://952a-166-1-22-239.ngrok-free.app/auth/shopify/callback",
-  "https://952a-166-1-22-239.ngrok-free.app/api/auth/callback"
+  "https://b056-166-1-22-239.ngrok-free.app/auth/callback",
+  "https://b056-166-1-22-239.ngrok-free.app/auth/shopify/callback",
+  "https://b056-166-1-22-239.ngrok-free.app/api/auth/callback"
 ]
 
 [webhooks]
